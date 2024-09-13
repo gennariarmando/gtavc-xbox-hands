@@ -1,0 +1,1628 @@
+<?xml version="1.0"?>
+
+<GTA_XML>
+	
+	
+
+	<HAND side="left" model="NON-SKINNED" red="255" green="255" blue="255" alpha="255"/>
+
+	<HAND side="right" model="NON-SKINNED" red="255" green="255" blue="255" alpha="255"/>
+
+
+	<HAND model="skinned"/>
+	<ANIMATION TIME="12.0"/>
+	<ANIMATION TYPE="static"/>
+
+
+	<HAND side="left">
+		<ANIMATION TYPE="loop"/>
+	</HAND>
+
+
+	<ANIMATION TYPE="loop"/>
+
+
+	<hand side="right" model="handModel" red="0" green="255" blue="0">
+	</HAND>
+
+
+
+	<hand side="right" model="NON-SKINNED">
+
+		<ANIMATION type="loop"/>
+	</HAND>
+
+
+	<CUTSCENE NAME="intro">
+		<!-- Character name corresponds to the model filename used in the script -->
+		<CHARACTER NAME="sfrenda">
+			<!-- Individual left hand for this character in this cutscene -->
+			<!-- A big black man -->
+			<HAND side="left" model="modelId" red="0" green="0" blue="0">
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+
+	<HAND side="left" model="NON-SKINNED" red="0" green="0" blue="0" alpha="255"/>
+	<HAND side="right" model="NON-SKINNED" red="0" green="0" blue="0" alpha="255"/>
+
+	<HAND side="left" model="SKINNED" red="255" green="255" blue="255" alpha="255"/>
+	<HAND side="right" model="SKINNED" red="255" green="255" blue="255" alpha="255"/>
+	
+	
+	<!-- Different hand models:  -->
+	
+		<!-- 	<HAND gender="male"/>		-->
+		<!-- 	<HAND gender="female"/>		-->
+		<!--	<HAND model="SKINNED-GLOVE"     -->
+
+
+	<!-- GLOBAL HAND COLOR TWEAK (for csplay and others)-->
+		<HAND red="220" green="225" blue="255"/>
+		
+	<!-- GLOBAL HAND SCALE TWEAK (for csplay and others based on that character) -->
+		<HAND scaleX="0.95" scaleY="0.95" scaleZ="0.95"/>
+		
+	
+	
+	<CUTSCENE name="STRIPA">
+		<CHARACTER name="stripa">
+			<HAND gender="female" red="255" green="255" blue="255">
+				<ANIMATION type="static" time="1.02"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE NAME="int_a">
+		<CHARACTER name="sgoona">
+			<HAND>
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="sgoonb">			
+			<HAND positionX="-0.01" positionY="-0.005" positionZ="0.005">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="sfrenda">
+			<HAND red="205" green="225" blue="255">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="sfrendb">
+			<HAND red="255" green="255" blue="255"/>
+			<HAND side="right" positionX="0.0" positionY="0.0" positionZ="0.0">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+			<HAND side="left" positionX="-0.02" positionY="-0.01" positionZ="0.0">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cssonny">
+			<HAND red="170" green="205" blue="255">
+				<!--<ANIMATION type="static" time="3.4"/>-->
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE NAME="int_m">
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="sgoona">
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+	</CUTSCENE>
+		
+	
+	<CUTSCENE name="int_d">
+		<CHARACTER name="csdeal">
+			<HAND red="195" green="195" blue="210">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="sgoona">
+				<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="sgoonb">
+				<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="csassa">
+			<HAND side="right" model="NON-SKINNED"/>
+		</CHARACTER>
+		<CHARACTER name="csassb">
+			<HAND side="right" model="NON-SKINNED"/>
+		</CHARACTER>
+		<CHARACTER name="csassc">
+			<HAND side="right" model="NON-SKINNED"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE NAME="int_b">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="-0.01" positionZ="-0.015"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cssonny">
+			<HAND red="170" green="205" blue="255"/>
+			<!--<HAND red="170" green="205" blue="255"/>-->
+			<HAND side="right">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+
+	<CUTSCENE NAME="law_1a">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionY="-0.01" positionZ="-0.0"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="2.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>	
+			<HAND red="220" green="215" blue="255">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+
+	<CUTSCENE NAME="law_1b">
+		<CHARACTER name="cservra">
+			<HAND side="right" model="NON-SKINNED"/>
+			<HAND side="left" gender="female" red="255" green="255" blue="255" positionX="0.0" positionY="-0.005" positionZ="0.015"/>
+			<HAND side="left" scaleX="0.9" scaleY="0.9" scaleZ="0.9"/>
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND red="200" green="190" blue="200">
+				<!--<ANIMATION type="static" time="0.0"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay2">
+			<HAND side="right" positionY="0.005" positionZ="-0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csjezz">
+			<HAND model="SKINNED-GLOVE"/>
+			<!--<HAND model="NON-SKINNED"/>-->
+		</CHARACTER>
+		<CHARACTER name="csdlove">
+			<HAND red="245" green="225" blue="250"/>
+		</CHARACTER>
+		<CHARACTER name="cscandy">
+			<HAND scaleX="0.9" scaleY="0.9" scaleZ="0.9"/>
+			<HAND gender="female" red="215" green="185" blue="185">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csbj">
+			<HAND side="right" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.015"/>
+			<HAND red="150" green="150" blue="150">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csmerc2">
+			<HAND scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND gender="female" red="190" green="195" blue="215"/>
+			<HAND side="left" positionZ="-0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<ANIMATION type="static" time="2.4"/>
+		</CHARACTER>
+		<CHARACTER name="cgona">
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="csgonz">
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionX="-0.01" positionZ="0.015"/>
+			<HAND side="left" positionY="0.01" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255">
+				<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csavery">
+			<HAND red="170" green="205" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csalsb2">
+			<HAND red="170" green="205" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csrich">
+			<ANIMATION type="static"/>
+		</CHARACTER>
+		<CHARACTER name="csdiaz">
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csdirec">
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="dgoona">
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="dgoonb">
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="law_2a">
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND red="220" green="215" blue="255"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255">
+				<!--<ANIMATION type="static" time="0.6"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.005"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="law_2b">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.005"/>
+
+			<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND gender="female" scaleX="1" scaleY="1" scaleZ="1"/>
+			<HAND red="200" green="190" blue="200"/>
+			<!--<HAND red="220" green="205" blue="220"/>-->
+			<!--<HAND side="left" positionY="-0.005" positionZ="0.01"/>
+			<HAND side="right" positionX="-0.01" positionY="0.01"/>-->
+			<!--<HAND gender="male" scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<HAND red="200" green="215" blue="220"/>-->
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="law_2c">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="law_3">
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.005"/>
+			<HAND red="220" green="215" blue="255">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="right" positionX="-0.01" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.01" positionZ="0.01"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+
+	<CUTSCENE name="law_4">
+		<CHARACTER name="csplay">
+			<!--<HAND side="right" positionZ="-0.015"/>-->
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.005"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.005"/>
+			<HAND red="220" green="215" blue="255">
+				<!--<ANIMATION type="static" time="3.4"/>-->
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csavery">
+			<HAND red="170" green="205" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+
+	<CUTSCENE name="col_1">
+		<CHARACTER name="cgona">
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<!--<HAND side="right" positionZ="-0.015"/>-->
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cservrb">
+			<HAND gender="female" scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<HAND red="230" green="215" blue="225"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="1.7"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionX="-0.01" positionY="0.01" positionZ="0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255">
+				<!--<ANIMATION type="static" time="3.4"/>-->
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="col_2">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csgoonb">
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionX="-0.01" positionY="0.01" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="cservrb">
+			<HAND gender="female" scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<HAND red="230" green="215" blue="225"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="col_3a">
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionX="-0.01" positionY="0.01" positionZ="0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255">
+				<!--<ANIMATION type="static" time="2.4"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="col_4a">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="0.0" positionZ="-0.01"/>
+			<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionY="0.01" positionZ="-0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="col_5a">
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionX="-0.0" positionY="0.01" positionZ="0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="left" red="205" green="220" blue="255">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+			<HAND side="right" red="205" green="220" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="0.01" positionZ="-0.015"/>
+			<!--<HAND side="right" positionX="0.005" positionZ="-0.025"/>
+			<HAND side="left" positionZ="0.02"/>-->
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="col_5b">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionY="0.015" positionZ="-0.015"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cscolo">
+			<HAND side="right" positionX="-0.01" positionY="0.01" positionZ="-0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right" red="205" green="220" blue="255">
+				<!--<ANIMATION type="static" time="3.0"/>-->
+			</HAND>
+			<HAND side="left" red="205" green="220" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+			
+		
+	<CUTSCENE name="cok_1">
+		<CHARACTER name="dgoona">
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="dgoonc">
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="csdiaz">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="right" positionX="0.005" positionZ="-0.00"/>
+			<HAND side="left" positionX="0.005" positionZ="0.005"/>
+		</CHARACTER>
+	</CUTSCENE>
+		
+	
+	<CUTSCENE NAME="cok_2a">
+		<CHARACTER name="csdiaz">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="left" positionZ="0.005"/>
+			<HAND side="right" positionZ="-0.01">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionY="-0.005" positionZ="-0.015"/>
+			<HAND side="right" positionY="-0.005"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="cok_2b">
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE NAME="cok_3">
+		<CHARACTER name="csdiaz">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="right" positionZ="-0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+			<HAND side="left">
+				<!--<ANIMATION type="static" time="1"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+		
+	<CUTSCENE NAME="cok_4a">
+		<CHARACTER name="csdiaz">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="right" positionZ="-0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+			<HAND side="left">
+				<ANIMATION type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left" positionZ="0.01"/>
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="cok_4a2">
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+		
+	
+		
+	<CUTSCENE NAME="ass_1">
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+			<HAND side="right">	
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right">
+				<ANIMATION type="static" time="3.0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="ass_2">
+		<ANIMATION type="static" time="0.0"/>		
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+		<CHARACTER name="csdiaz">
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+
+	
+	
+	<CUTSCENE name="resc_1a">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND gender="female" scaleX="1.0" scaleY="1.0" scaleZ="1.0"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="200" green="190" blue="200"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="tex_1">
+		<CHARACTER name="csplay">
+			<HAND side="right">
+				<HAND side="right" positionZ="-0.015"/>
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="left">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csavery">
+			<HAND side="right" positionX="0.01" positionY="0.01"/>
+			<HAND side="right" red="170" green="205" blue="255">
+				<!--<ANIMATION type="static" time="0.6"/>-->
+			</HAND>
+			<HAND side="left" red="170" green="205" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="tex_2">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csdlove">
+			<HAND red="245" green="225" blue="250">
+				<ANIMATION type="static" time="0"/>		
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csavery">
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="left" red="170" green="205" blue="255"/>
+				<!--<ANIMATION type="static" time="0"/>-->
+			<HAND side="right" red="170" green="205" blue="255">
+				<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="tex_3">
+		<CHARACTER name="csavery">
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bank_1">
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionZ="-0.01"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<!--<ANIMATION type="static" time="0"/>-->
+		</CHARACTER>
+	</CUTSCENE>
+	
+		
+	<CUTSCENE name="bank_2a">
+		<CHARACTER name="cscamj">
+			<HAND positionY="-0.005"/>
+			<!--<ANIMATION type="static" time="1.0"/>-->
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.0"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND red="220" green="215" blue="255"/>
+			<HAND side="right" positionX="-0.0" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.0" positionZ="0.01"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="bank_2b">
+		<CHARACTER name="csphil">
+			<HAND red="220" green="220" blue="255"/>
+			<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="3.7"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="shootrb">
+			<HAND side="right" positionX="0.04" positionY="0.02" positionZ="-0.02"/>
+			<HAND side="left" positionX="0.04" positionY="0.03" positionZ="0.02"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="1.4"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="0.7"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bank_3a">
+		<CHARACTER name="csphil">
+			<HAND red="220" green="220" blue="255"/>
+			<HAND side="right" positionZ="-0.02"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<ANIMATION type="static" time="1"/>
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="1.0"/>
+			</HAND>
+			
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND red="220" green="215" blue="255"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bank_3b">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="2.7"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cshlary">
+				<HAND red="170" green="205" blue="255"/>
+				<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bank_4">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cshlary">
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND red="220" green="215" blue="255"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+		</CHARACTER>
+		<CHARACTER name="csphil">
+			<HAND red="220" green="220" blue="255"/>
+			<HAND side="right" positionZ="-0.02"/>
+			<HAND side="left" positionZ="0.02"/>
+		</CHARACTER>
+		
+		
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="phil_1">
+		<CHARACTER name="csphil">
+			<HAND red="220" green="220" blue="255"/>
+			<HAND side="right" positionZ="-0.02"/>
+			<HAND side="left" positionZ="0.02"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="phil_2">
+		<CHARACTER name="csphil">
+			<HAND side="right" positionZ="-0.02"/>
+			<HAND side="left" positionZ="0.02"/>
+			<HAND red="220" green="220" blue="255"/>
+			<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="porn_1">
+		<CHARACTER name="mporna">
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="csjuggz">
+			<HAND gender="female"/>
+		</CHARACTER>
+		<CHARACTER name="cmraman">
+			<!--<HAND race="black">-->
+			<HAND red="90" green="90" blue="90">
+				<ANIMATION type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csdirec">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="right" positionX="-0.005" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.01"/>
+			<!--<ANIMATION type="static" time="0.6"/>-->
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="0.0" positionY="0.01" positionZ="-0.01">
+				<ANIMATION type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+		
+	
+	<CUTSCENE name="porn_2">
+		<CHARACTER name="csmerc">
+			<HAND scaleX="0.9" scaleY="0.9" scaleZ="0.9"/>
+			<HAND side="left" positionZ="0.005"/>
+			<HAND gender="female" red="210" green="215" blue="235"/>
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="right" positionZ="0.01" positionY="-0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csdirec">
+			<HAND red="205" green="220" blue="255"/>
+			<!--<ANIMATION type="static" time="0"/>-->
+			<!--<HAND side="left" positionX="0.015" positionY=""/>-->
+		</CHARACTER>
+		<CHARACTER name="crewa">
+			<HAND red="150" green="150" blue="150"/>
+		</CHARACTER>
+		<CHARACTER name="crewb">
+			<HAND red="170" green="195" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="porn_3">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="2.7"/>
+		</CHARACTER>
+		<CHARACTER name="cmraman">
+			<HAND red="90" green="90" blue="90">
+			<!--<HAND race="black">-->
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csdirec">
+			<HAND side="right" positionX="-0.005" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="left">
+				<!--<ANIMATION type="static" time="0.5"/>-->
+			</HAND>
+			<HAND side="right">
+				<!--<ANIMATION type="static" time="0.5"/>-->
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+		
+	<CUTSCENE name="porn_4">
+		<CHARACTER name="cmraman">
+			<HAND red="90" green="90" blue="90">
+			<!--<HAND race="black">-->
+				<ANIMATION type="static" time="0.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION type="static"/>
+			</HAND>
+			<HAND side="left">
+				<ANIMATION type="static"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cscandy">
+			<HAND scaleX="0.9" scaleY="0.9" scaleZ="0.9"/>
+			<HAND gender="female" red="215" green="185" blue="185"/>
+		</CHARACTER>
+		<CHARACTER name="mporna">
+			<ANIMATION type="static"/>
+		</CHARACTER>
+		<CHARACTER name="csdirec">
+			<HAND side="right" positionY="0.005" positionZ="-0.005"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="GSPOT">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bud_1">
+		<CHARACTER name="csbuddy">
+			<HAND side="right" positionY="0.01" positionZ="-0.005"/>
+			<HAND red="150" green="150" blue="150">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csavery">
+			<HAND side="right" positionY="0.01" positionZ="-0.01"/>
+			<HAND red="170" green="205" blue="255">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left" positionZ="0.0"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bud_2">
+		<CHARACTER name="dgoona">
+			<HAND red="205" green="220" blue="255"/>
+			<HAND side="left" positionZ="0.005"/>
+			<HAND side="right" positionX="0.02" positionZ="-0.02"/>
+			<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="dgoonc">
+			<HAND red="205" green="220" blue="255"/>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right" positionX="-0.0" positionY="0.01" positionZ="-0.0"/>
+			<HAND red="150" green="150" blue="150">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="-0.01" positionZ="-0.015"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="bud_3">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionY="-0.005" positionZ="-0.015"/>
+			<HAND side="left" positionX="-0.01"/>
+			<ANIMATION type="static" time="0.0"/>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND side="right" positionY="0.005" positionZ="-0.005"/>
+			<HAND side="left" positionY="-0.005"/>
+			<HAND side="right" red="150" green="150" blue="150">
+			</HAND>
+			<HAND side="left" red="150" green="150" blue="150">
+				<ANIMATION type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="dgoona">
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="205" green="220" blue="255"/>
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="cnt_1a">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION  type="static" time="0"/>
+			</HAND>
+			<HAND side="left">
+				<ANIMATION  type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cskelly">
+			<HAND side="right" positionX="0.01" positionZ="0.01"/>
+			<HAND red="170" green="205" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>	
+		
+		
+		
+	<CUTSCENE name="cnt_1b">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="0.0" positionZ="0.0"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="left">
+				<ANIMATION type="static" time="1.7"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="floozya">
+			<HAND gender="female" red="230" green="215" blue="225" scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<!--<HAND red="220" green="235" blue="255"/>-->
+			<HAND side="left" positionX="0.01" positionY="-0.01" positionZ="0.01"/>
+			<HAND side="right" positionY="-0.01" positionZ="0.0">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND gender="female" scaleX="1.0" scaleY="1.0" scaleZ="1.0"/>
+			<HAND red="200" green="190" blue="200"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			
+			
+			<!--<HAND side="right" positionY="0.0" positionZ="-0.0"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="210" green="205" blue="220">
+				<ANIMATION type="static" time="0"/>
+			</HAND>-->
+		</CHARACTER>
+	</CUTSCENE>
+	
+
+
+	<CUTSCENE name="cnt_2">
+		<CHARACTER name="cskelly">
+			<HAND side="right" positionX="0.01" positionZ="-0.01"/>
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.0"/>
+			<HAND side="right">
+				<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>	
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="car_1">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static"  time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csbj">
+			<HAND side="right" positionZ="-0.005"/>
+			<HAND side="left" positionZ="0.015"/>
+			<HAND side="left" red="150" green="150" blue="150">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="right" red="150" green="150" blue="150"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="ice_1">
+		<CHARACTER name="csmaude">
+			<HAND scaleX="1" scaleY="1" scaleZ="1"/>
+			<HAND gender="female"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="0.3"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="tax_1">
+		<CHARACTER name="cdrivra">
+			<!-- guy with red shirt-->
+			<HAND red="170" green="205" blue="255"/>
+			<HAND side="left" positionY="-0.01"/>
+			<ANIMATION type="static" time="2.4"/>
+		</CHARACTER>
+		<CHARACTER name="cdrivrb">
+			<!-- guy with blue shirt-->
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="2.4"/>
+		</CHARACTER>
+		<CHARACTER name="csdoris">
+			<!--<HAND positionX="-0.02" positionY="-0.02"/>-->
+			<HAND red="220" green="190" blue="220"/>
+			<HAND gender="female" scaleX="0.8" scaleY="0.8" scaleZ="0.8">
+				<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>			
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="drug_1">
+		<CHARACTER name="csdwayn">
+			<!-- guy with R*N shirt -->
+			<HAND red="225" green="200" blue="235"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="csjetro">
+			<!-- guy with cap -->
+			<HAND red="225" green="200" blue="235"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015">
+				<!--<ANIMATION type="static" time="1.7"/>-->
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="cap_1">
+		<CHARACTER name="printrb">
+			<!-- guy with hat-->
+			<!--<HAND model="NON-SKINNED" race="black">-->
+			<HAND red="160" green="160" blue="160">
+				<!--<ANIMATION type="static" time="1"/>-->
+			</HAND>
+			<HAND side="left">
+				<ANIMATION type="static" time="1.7"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="printra">
+			<!-- guy with the bandana-->
+			<HAND side="left" positionY="0.02"/>
+			<HAND side="right" positionX="-0.02" positionY="-0.01" positionZ="-0.01"/>
+			<HAND red="245" green="220" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="printrc">
+			<!-- guy without hat-->
+			<HAND side="left" positionY="0.02"/>
+			<HAND side="right" positionX="-0.04" positionY="0.02" positionZ="-0.02"/>
+			<HAND red="245" green="220" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionY="-0.005" positionZ="-0.0"/>
+			<HAND>
+				<ANIMATION type="static" time="3"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cskelly">
+			<HAND side="left">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND red="170" green="205" blue="255"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="fin">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.0"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.0" positionZ="-0.02"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+			<HAND side="right" red="220" green="215" blue="255">
+				<!--<ANIMATION type="static" time="1"/>-->
+			</HAND>
+			<HAND side="left" red="220" green="215" blue="255">
+				<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="fin_2">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="0.95" scaleY="0.95" scaleZ="0.95"/>
+			<HAND side="right" positionX="-0.01" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.01" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="sgoona">
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="sgoonb">
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="sfrenda">
+			<HAND red="170" green="205" blue="255"/>
+			<ANIMATION type="static" time="0"/>
+			<HAND side="left" positionZ="0.005"/>
+		</CHARACTER>
+		<CHARACTER name="cssonny">
+			<HAND red="170" green="205" blue="255">
+				<!--<ANIMATION type="static" time="0.6"/>-->
+			</HAND>
+			<HAND side="right" positionY="0.01"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="finale">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csken">
+			<HAND gender="female"/>
+			<HAND scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="right" positionX="-0.02" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.01" positionZ="0.01"/>
+			<HAND red="220" green="215" blue="255">
+			<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csbuddy">
+			<HAND red="150" green="150" blue="150"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	
+	<CUTSCENE name="bike_1">
+		<CHARACTER name="csbigm">
+			<HAND red="170" green="195" blue="255"/>
+			<HAND side="right" positionX="-0.005" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.005" positionY="-0.01" positionZ="0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="mgoona">
+			<HAND red="255" green="255" blue="255"/>
+			<HAND side="right" positionX="-0.02"/>
+			<HAND side="left" positionX="-0.03" positionY="-0.01" positionZ="0.02"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bike_3">
+		<CHARACTER name="csbigm">
+			<HAND red="170" green="195" blue="255"/>
+			<HAND side="right" positionX="0.01" positionY="-0.01" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.01" positionZ="0.01"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="2.4"/>
+			</HAND>
+			<HAND side="left">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="mgoona">
+			<HAND red="225" green="205" blue="205"/>
+			<HAND side="right" positionX="-0.03" positionY="0.01" positionZ="-0.005"/>
+			<ANIMATION type="static" time="2.4"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="bike_2">
+		<ANIMATION type="static" time="0"/>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+		</CHARACTER>
+		<CHARACTER name="csbigm">
+			<HAND red="170" green="195" blue="255"/>
+			<HAND side="right" positionX="-0.01" positionZ="-0.01"/>
+			<HAND side="left" positionX="-0.02" positionZ="0.01"/>
+		</CHARACTER>
+	</CUTSCENE>
+		
+	
+	<CUTSCENE name="cub_1">
+		<CHARACTER name="cspablo">
+			<!-- guy sitting at the right end of the table -->
+			<HAND red="225" green="205" blue="205"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="cspepe">
+			<!-- guy sitting in the middle -->
+			<HAND red="225" green="205" blue="205"/>
+			<ANIMATION type="static" time="3.4"/>
+		</CHARACTER>
+		<CHARACTER name="cspapa">
+			<!--guy at the left end of the table-->
+			<HAND red="225" green="205" blue="205"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionY="0.015" positionZ="-0.0"/>
+			
+			<!--<ANIMATION type="static" time="0"/>-->
+		</CHARACTER>
+		<CHARACTER name="csumbto">
+			<HAND side="right" positionX="0.005" positionZ="-0.005"/>
+			<HAND side="left" positionX="0.01" positionZ="0.01"/>
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="cub_2">
+		<CHARACTER name="cspablo">
+			<HAND red="225" green="205" blue="205"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cspepe">
+			<HAND red="225" green="205" blue="205"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cspapa">
+			<HAND red="225" green="205" blue="205"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csumbto">
+			<HAND side="left" positionY="-0.005" positionZ="0.005"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+		
+	<CUTSCENE name="cub_4">
+		<CHARACTER name="cspapa">
+			<ANIMATION type="static" time="0"/>			
+		</CHARACTER>
+		<CHARACTER name="cspepe">
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cspablo">
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csumbto">
+			<HAND side="right">
+				<ANIMATION type="static" time="2.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<!--<ANIMATION type="static" time="0.7"/>-->
+		</CHARACTER>
+	</CUTSCENE>
+			
+	
+	<CUTSCENE name="cub_3">
+		<CHARACTER name="floozyc">
+			<!-- girl to the left -->
+			<HAND red="230" green="215" blue="225"/>
+			<HAND scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<HAND gender="female" side="right">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="right" positionX="-0.01" positionY="0.0" positionZ="-0.01"/>
+			<HAND gender="female" side="left">
+				<!--<ANIMATION type="static" time="2.4"/>-->
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="floozyb">
+			<!-- girl to the right -->
+			<HAND scaleX="0.8" scaleY="0.8" scaleZ="0.8"/>
+			<HAND red="125" green="105" blue="65"/>
+			<HAND gender="female" side="right">
+			<!--<ANIMATION type="static" time="0"/>-->
+			</HAND>
+			<HAND gender="female" side="left">
+				<!--<ANIMATION type="static" time="2.4"/>-->
+			</HAND>
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left" positionX="0.01" positionY="-0.01" positionZ="0.015"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+		</CHARACTER>
+		<CHARACTER name="cspapa">
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+	</CUTSCENE>
+	
+		
+	<CUTSCENE name="hat_1">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="0.01" positionY="0.005" positionZ="-0.015"/>
+			
+			<ANIMATION type="static" time="2.0"/>
+		</CHARACTER>
+		<CHARACTER name="apoulet">
+			<HAND red="150" green="150" blue="170"/>
+			<HAND positionX="0.01"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="hat_2">
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.005"/>
+			<HAND>
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="apoulet">
+			<HAND red="150" green="150" blue="170"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+
+
+
+	<CUTSCENE name="hat_3">
+		<CHARACTER name="apoulet">
+			<HAND red="150" green="150" blue="170"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND side="left">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+			<HAND side="right">
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionX="0.02" positionZ="-0.0"/>
+			<HAND>
+				<ANIMATION type="static" time="3.4"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="rok_1">
+		<CHARACTER name="csjezz">
+			<HAND model="SKINNED-GLOVE"/>
+			<HAND red="220" green="215" blue="255"/>
+			<HAND side="right">
+				<ANIMATION type="static" time="1.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cspercy">
+			<HAND model="SKINNED-GLOVE"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csdick">
+			<HAND model="SKINNED-GLOVE"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.01"/>
+			<!--<ANIMATION type="static" time="0"/>-->
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND gender="female" scaleX="1.1" scaleY="1.1" scaleZ="1.1"/>
+			<HAND side="left" positionZ="0.01"/>
+			<HAND red="200" green="190" blue="200">
+			<!--<HAND red="210" green="205" blue="220">-->
+				<!--<ANIMATION type="static" time="0.6"/>-->
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="rok_2">
+		<CHARACTER name="csjezz">
+		<HAND model="SKINNED-GLOVE"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cspercy">
+			<HAND model="SKINNED-GLOVE"/>
+			<!--<ANIMATION type="static" time="0"/>-->
+		</CHARACTER>
+		<CHARACTER name="csdick">
+			<HAND model="SKINNED-GLOVE"/>
+			<!--<ANIMATION type="static" time="0"/>-->
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND gender="female" scaleX="1" scaleY="1" scaleZ="1"/>
+			<!-- test -->
+			<HAND red="200" green="190" blue="200">
+				<ANIMATION type="static" time="2.4"/>
+			</HAND>
+		</CHARACTER>
+	</CUTSCENE>
+	
+	
+	<CUTSCENE name="rok_3a">
+		<CHARACTER name="csjezz">
+			<HAND model="SKINNED-GLOVE"/>			
+			<ANIMATION type="static" time="0"/>
+		</CHARACTER>
+		<CHARACTER name="cskent">
+			<HAND gender="female" scaleX="1" scaleY="1" scaleZ="1"/>
+			<HAND red="200" green="190" blue="200">*,
+				<ANIMATION type="static" time="2.0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="csplay">
+			<HAND side="right" positionZ="-0.015"/>
+			<HAND side="left" positionY="-0.02">
+				<ANIMATION type="static" time="0"/>
+			</HAND>
+		</CHARACTER>
+		<CHARACTER name="cspercy">
+			<HAND model="SKINNED-GLOVE"/>
+		</CHARACTER>
+		<CHARACTER name="csdick">
+			<HAND model="SKINNED-GLOVE"/>
+		</CHARACTER>
+	</CUTSCENE>
+
+</GTA_XML>

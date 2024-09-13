@@ -12,6 +12,8 @@
 #include "xmllib/XmlLibrary.h"
 #include "Utils.h"
 
+#define NO_HANDS_STREAMING // Loads hands directly from "anim" folder
+
 class XboxHandsVC {
 public:
     static inline plugin::CdeclEvent <plugin::AddressList<0x406D7B, plugin::H_CALL>,
@@ -41,6 +43,31 @@ public:
 		MODEL_CSHANDS = 639,
 		SPECIAL_CHAR_OFFSET = 108,
     };
+
+	enum BoneTag {
+		BONE_root = 0,
+		BONE_pelvis = 1,
+		BONE_spine = 2,
+		BONE_spine1 = 3,
+		BONE_neck = 4,
+		BONE_head = 5,
+		BONE_l_clavicle = 31,
+		BONE_l_upperarm = 32,
+		BONE_l_forearm = 33,
+		BONE_l_hand = 34,
+		BONE_l_finger = 35,
+		BONE_r_clavicle = 21,
+		BONE_r_upperarm = 22,
+		BONE_r_forearm = 23,
+		BONE_r_hand = 24,
+		BONE_r_finger = 25,
+		BONE_l_thigh = 41,
+		BONE_l_calf = 42,
+		BONE_l_foot = 43,
+		BONE_r_thigh = 51,
+		BONE_r_calf = 52,
+		BONE_r_foot = 53,
+	};
     
     struct HandAnimInfo {
         char* m_aAnimFile;
@@ -353,11 +380,13 @@ public:
 
 		static void Destroy(int32_t index, Handedness hand) {
 			if (index <= 20) {
+#ifndef NO_HANDS_STREAMING
 				int32_t modelIndex = GetIdForCharacter();
-				//CStreaming::SetMissionDoesntRequireModel(modelIndex);
-				//CStreaming::SetModelIsDeletable(modelIndex);
-				//CStreaming::SetModelTxdIsDeletable(modelIndex);
-				
+				CStreaming::SetMissionDoesntRequireModel(modelIndex);
+				CStreaming::SetModelIsDeletable(modelIndex);
+				CStreaming::SetModelTxdIsDeletable(modelIndex);
+#endif
+
 				auto inst = &Instances[index][hand];
 				if (inst->m_pAtomic) {
 					RpAtomicDestroy(inst->m_pAtomic);
@@ -398,8 +427,11 @@ public:
 			if (modelIndex < 0)
 				return;
 
-			//RpClump* clump = ((CClumpModelInfo*)CModelInfo::ms_modelInfoPtrs[modelIndex])->m_pClump;
+#ifdef NO_HANDS_STREAMING
 			RpClump* clump = m_pHandsClump;
+#else
+			RpClump* clump = ((CClumpModelInfo*)CModelInfo::ms_modelInfoPtrs[modelIndex])->m_pClump;
+#endif
 
 			if (clump) {
 				AtomicByNameData data;
@@ -642,8 +674,10 @@ public:
 			if (!m_PrefsHighpolyModels)
 				return;
 
-			//if (CStreaming::ms_aInfoForModel[CutsceneHand::GetIdForCharacter()].m_nLoadState != LOADSTATE_LOADED)
-			//	return;
+#ifndef NO_HANDS_STREAMING
+			if (CStreaming::ms_aInfoForModel[CutsceneHand::GetIdForCharacter()].m_nLoadState != LOADSTATE_LOADED)
+				return;
+#endif
 
 			if (!Instances[index][HANDEDNESS_LEFT].m_pAtomic)
 				CutsceneHand::Create(index, CutsceneHand::HANDEDNESS_LEFT);
@@ -676,7 +710,9 @@ public:
 			if (id < 0)
 				return;
 
-			//CStreaming::RequestModel(id, 6);
+#ifndef NO_HANDS_STREAMING
+			CStreaming::RequestModel(id, 6);
+#endif
 
 			Instances[index][0].m_pAtomic = nullptr;
 			Instances[index][1].m_pAtomic = nullptr;
@@ -1681,7 +1717,10 @@ public:
     };
 
     static inline std::array<std::array<CutsceneHand::HandInstance, 2>, NUM_INSTANCES> Instances;
+
+#ifdef NO_HANDS_STREAMING
 	static inline RpClump* m_pHandsClump = nullptr;
+#endif
 
     XboxHandsVC() {
 		plugin::Events::initRwEvent += []() {
@@ -1689,6 +1728,7 @@ public:
         };
 
 		plugin::Events::initGameEvent += []() {
+#ifdef NO_HANDS_STREAMING
 			int32_t slot = CTxdStore::FindTxdSlot("hands");
 
 			if (slot == -1)
@@ -1706,17 +1746,20 @@ public:
 			else {
 				m_pHandsClump = clump;
 			}
+#endif
 		};
 
         plugin::Events::shutdownRwEvent += []() {
 			CutsceneHand::CleanUp();
 
+#ifdef NO_HANDS_STREAMING
 			int32_t slot = CTxdStore::FindTxdSlot("hands");
 			if (slot != -1)
 				CTxdStore::RemoveTxdSlot(slot);
 
 			if (m_pHandsClump)
 				RpClumpDestroy(m_pHandsClump);
+#endif
 		};
 
 		onPreRenderCutsceneObject += [](CCutsceneObject* obj) {

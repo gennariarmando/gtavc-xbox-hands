@@ -70,103 +70,6 @@ static void RpHAnimFrameSetHierarchy(RwFrame* frame, RpHAnimHierarchy* hierarchy
     hierarchy->parentFrame = frame;
 }
 
-static int32_t& ClumpOffset = *(int32_t*)0x978798;
-
-static AnimBlendFrameData* foundFrame = nullptr;
-
-enum BoneTag {
-    BONE_root = 0,
-    BONE_pelvis = 1,
-    BONE_spine = 2,
-    BONE_spine1 = 3,
-    BONE_neck = 4,
-    BONE_head = 5,
-    BONE_l_clavicle = 31,
-    BONE_l_upperarm = 32,
-    BONE_l_forearm = 33,
-    BONE_l_hand = 34,
-    BONE_l_finger = 35,
-    BONE_r_clavicle = 21,
-    BONE_r_upperarm = 22,
-    BONE_r_forearm = 23,
-    BONE_r_hand = 24,
-    BONE_r_finger = 25,
-    BONE_l_thigh = 41,
-    BONE_l_calf = 42,
-    BONE_l_foot = 43,
-    BONE_r_thigh = 51,
-    BONE_r_calf = 52,
-    BONE_r_foot = 53,
-};
-
-static const char* ConvertBoneTag2BoneName(int tag) {
-    switch (tag) {
-        case BONE_root:	return "Root";
-        case BONE_pelvis:	return "Pelvis";
-        case BONE_spine:	return "Spine";
-        case BONE_spine1:	return "Spine1";
-        case BONE_neck:	return "Neck";
-        case BONE_head:	return "Head";
-        case BONE_r_clavicle:	return "Bip01 R Clavicle";
-        case BONE_r_upperarm:	return "R UpperArm";
-        case BONE_r_forearm:	return "R Forearm";
-        case BONE_r_hand:	return "R Hand";
-        case BONE_r_finger:	return "R Fingers";
-        case BONE_l_clavicle:	return "Bip01 L Clavicle";
-        case BONE_l_upperarm:	return "L UpperArm";
-        case BONE_l_forearm:	return "L Forearm";
-        case BONE_l_hand:	return "L Hand";
-        case BONE_l_finger:	return "L Fingers";
-        case BONE_l_thigh:	return "L Thigh";
-        case BONE_l_calf:	return "L Calf";
-        case BONE_l_foot:	return "L Foot";
-        case BONE_r_thigh:	return "R Thigh";
-        case BONE_r_calf:	return "R Calf";
-        case BONE_r_foot:	return "R Foot";
-    }
-    return nullptr;
-}
-
-static int32_t gtastrcmp(const char* str1, const char* str2) {
-    return plugin::CallAndReturn<int32_t, 0x642410>(str1, str2);
-}
-
-static void FrameFindCallbackSkinned(AnimBlendFrameData* frame, void* arg) {
-    const char* name = ConvertBoneTag2BoneName(frame->m_nNodeId);
-    if (name && gtastrcmp(name, (char*)arg) == 0)
-        foundFrame = frame;
-}
-
-static void FrameFindCallback(AnimBlendFrameData* frame, void* arg) {
-    const char* name = GetFrameNodeName(frame->m_pFrame);
-    if (gtastrcmp(name, (char*)arg) == 0)
-        foundFrame = frame;
-}
-
-static inline RpAtomic* IsClumpSkinned(RpClump* c) {
-    RpAtomic* ret = nullptr;
-    RpClumpForAllAtomics(c, [](RpAtomic* atomic, void* data) -> RpAtomic* {
-        RpAtomic** ret = (RpAtomic**)data;
-        if (*ret)
-            return nullptr;
-
-        if (RpSkinGeometryGetSkin(atomic->geometry))
-            *ret = atomic;
-        return atomic;
-    }, &ret);
-    return ret;
-}
-
-static AnimBlendFrameData* RpAnimBlendClumpFindFrame(RpClump* clump, const char* name) {
-    foundFrame = NULL;
-    CAnimBlendClumpData* clumpData = *RWPLUGINOFFSET(CAnimBlendClumpData*, clump, ClumpOffset);
-    if (IsClumpSkinned(clump))
-        clumpData->ForAllFrames(FrameFindCallbackSkinned, (void*)name);
-    else
-        clumpData->ForAllFrames(FrameFindCallback, (void*)name);
-    return foundFrame;
-}
-
 static RpAtomic* GetAnimHierarchyCallback(RpAtomic* atomic, void* data) {
     *(RpHAnimHierarchy**)data = RpSkinAtomicGetHAnimHierarchy(atomic);
     return NULL;
@@ -242,7 +145,37 @@ static RwBool RtAnimInterpolatorAddAnimTime(RtAnimInterpolator* anim, RwReal t) 
     return true;
 }
 
-static RwBool RtAnimInterpolatorSubAnimTime(RtAnimInterpolator* anim, RwReal time) {
+static RwBool RtAnimInterpolatorSubAnimTime(RtAnimInterpolator* anim, RwReal t) {
+    anim->currentTime -= t;
+
+    if (anim->currentTime < 0.0f) {
+        anim->currentTime = 0.0f;
+        RtAnimInterpolatorSetCurrentAnim(anim, anim->pCurrentAnim);
+        return true;
+    }
+
+    KeyFrameHeader* first = RtAnimInterpolatorGetAnimFrame(anim, 0);
+    KeyFrameHeader* prev = (KeyFrameHeader*)anim->pNextFrame;
+    InterpFrameHeader* ifrm = nullptr;
+
+    while (prev > first && prev->time >= anim->currentTime) {
+        prev = (KeyFrameHeader*)((uint8_t*)anim->pNextFrame - anim->currentKeyFrameSize);
+        anim->pNextFrame = prev;
+    }
+
+    for (int32_t i = 0; i < anim->numNodes; i++) {
+        ifrm = RtAnimInterpolatorGetInterpFrame(anim, i);
+        if (ifrm->keyFrame1 == prev)
+            break;
+    }
+    ifrm->keyFrame2 = ifrm->keyFrame1;
+    ifrm->keyFrame1 = prev;
+
+    for (int32_t i = 0; i < anim->numNodes; i++) {
+        ifrm = RtAnimInterpolatorGetInterpFrame(anim, i);
+        anim->keyFrameInterpolateCB(ifrm, ifrm->keyFrame1, ifrm->keyFrame2, anim->currentTime);
+    }
+
     return true;
 }
 
