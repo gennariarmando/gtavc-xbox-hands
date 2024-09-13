@@ -6,7 +6,7 @@ Compatible only with GTA Vice City 1.0
 
 ## Screenshots:
 <p align="center">
-<img src="https://i.imgur.com/JmiZkgy.png" width="320" height="180">
+<img src="https://i.imgur.com/JmiZkgy.png" width="640" height="360">
 </p>
 
 # How to install
