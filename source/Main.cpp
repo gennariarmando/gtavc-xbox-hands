@@ -39,6 +39,7 @@ public:
         CUTSCENE_BUFFER_SIZE = 64000,
 		NUM_INSTANCES = 32,
 		MODEL_CSHANDS = 639,
+		SPECIAL_CHAR_OFFSET = 108,
     };
     
     struct HandAnimInfo {
@@ -139,11 +140,12 @@ public:
             RwFrame* m_pFrame;
             bool m_bHasHand;
             CRGBA m_Color;
-            uint8_t _pad0[3];
+            uint8_t pad[3];
             CVector m_vecPos;
             RpHAnimAnimation* m_pAnim;
             float m_fAnimTime;
             char m_aName[15];
+			int8_t m_PrintName;
             int32_t m_Gender;
             int32_t m_Race;
             int32_t m_Stature;
@@ -169,6 +171,8 @@ public:
                 m_Color.a = 255;
 
                 m_aName[0] = '\0';
+
+				m_PrintName = 0;
 
                 m_Gender = GENDER_MALE;
                 m_Race = RACE_WHITE;
@@ -266,7 +270,7 @@ public:
         }
 
         static bool IsSpecialCharacter(int32_t index) {
-            return (index - 1) <= 20;
+			return (uint32_t)(index - 1) <= 20;
         }
 
 		static int32_t GetModelIndexFromName(const char* name) {
@@ -376,8 +380,8 @@ public:
 			if (inst->m_pAtomic) {
 				if (inst->m_Gender == gender &&
 					inst->m_Race == race &&
-					inst->m_Prop == prop &&
-					inst->m_Stature == stature)
+					inst->m_Stature == stature &&
+					inst->m_Prop == prop)
 					return;
 
 				DeleteRwObject(index, hand);
@@ -413,16 +417,14 @@ public:
 
 				RpHAnimHierarchy* hier = RpHAnimFrameGetHierarchy(RpAtomicGetFrame(data.atomic));
 				RpHAnimHierarchy* hierNew = RpHAnimHierarchyCreate(hier->numNodes, 0, 0, (RpHAnimHierarchyFlag)hier->flags, 36);
-				
-				if (hierNew->numNodes > 0) {
-					for (int32_t i = 0; i < hierNew->numNodes; i++) {
-						hierNew->pNodeInfo[i].pFrame = nullptr;
-						hierNew->pNodeInfo[i].flags = hier->pNodeInfo[i].flags;
-						hierNew->pNodeInfo[i].nodeIndex = hier->pNodeInfo[i].nodeIndex;
-						hierNew->pNodeInfo[i].nodeID = hier->pNodeInfo[i].nodeID;
-					}
-				}
 
+				for (int32_t i = 0; i < hierNew->numNodes; i++) {
+					hierNew->pNodeInfo[i].pFrame = nullptr;
+					hierNew->pNodeInfo[i].flags = hier->pNodeInfo[i].flags;
+					hierNew->pNodeInfo[i].nodeIndex = hier->pNodeInfo[i].nodeIndex;
+					hierNew->pNodeInfo[i].nodeID = hier->pNodeInfo[i].nodeID;
+				}
+			
 				auto frame = RwFrameCreate();
 				RpAtomicSetFrame(inst->m_pAtomic, frame);
 				RpHAnimFrameSetHierarchy(frame, hierNew);
@@ -433,6 +435,10 @@ public:
 				inst->m_pFrame = parentFrame;
 
 				InitialiseHandAnimation(index, hand);
+
+#ifdef DEBUG
+				PrintCharacterNames(index, 1);
+#endif
 			}
 		}
 
@@ -445,8 +451,12 @@ public:
 			RtAnimInterpolatorSetCurrentTime(hier->currentAnim, 0.0f);
 		}
 
-		static void PrintCharacterNames(int32_t, int32_t) {
-			;;
+		static void PrintCharacterNames(int32_t index, int8_t on) {
+#ifdef DEBUG
+			HandInstance* inst = Instances[index].data();
+			inst[0].m_PrintName = on;
+			inst[1].m_PrintName = on;
+#endif
 		}
 
 		static RwMatrix* GetBoneMatrix(RpClump* clump, int32_t bone) {
@@ -548,7 +558,7 @@ public:
 		}
 
 		static void Replace(CObject* obj, Handedness hand) {
-			int32_t index = obj->m_nModelIndex - 108;
+			int32_t index = obj->m_nModelIndex - SPECIAL_CHAR_OFFSET;
 			bool isSpecial = IsSpecialCharacter(index);
 
 			if (!isSpecial)
@@ -579,7 +589,7 @@ public:
 			if (!m_PrefsHighpolyModels)
 				return;
 
-			int32_t index = obj->m_nModelIndex - 108;
+			int32_t index = obj->m_nModelIndex - SPECIAL_CHAR_OFFSET;
 
 			bool isSpecialChar = IsSpecialCharacter(index);
 			if (!isSpecialChar)
@@ -610,7 +620,7 @@ public:
 
 			if (!hasHands)
 				return;
-			
+
 			if (!inst->m_pAtomic)
 				return;
 
@@ -940,7 +950,7 @@ public:
 				XmlLibrary::AttributeVector::const_iterator it = std::find_if(attributes->begin(), attributes->end(), AttributeIsName);
 
 				if (it != attributes->end()) {
-					int mi = CutsceneHand::GetModelIndexFromName((*it)->Value().c_str());
+					int32_t mi = CutsceneHand::GetModelIndexFromName((*it)->Value().c_str());
 
 					if (mi != -1 && mi != -3 && mi != m_nModelIndex)
 						return;
@@ -1714,25 +1724,35 @@ public:
 		};
 
 		onRenderCutsceneObject += [](CCutsceneObject* obj) {
-			int32_t index = obj->m_nModelIndex - 108;
+			int32_t index = obj->m_nModelIndex - SPECIAL_CHAR_OFFSET;
 			if (CutsceneHand::IsSpecialCharacter(index)) {
 				CutsceneHand::Render(index, CutsceneHand::HANDEDNESS_LEFT);
 				CutsceneHand::Render(index, CutsceneHand::HANDEDNESS_RIGHT);
+
+#ifdef DEBUG
+				CutsceneHand::HandInstance* inst = Instances[index].data();
+				if (inst[0].m_PrintName) {
+					RwMatrix mat = *CutsceneHand::GetBoneMatrix(obj->m_pRwClump, BONE_head);
+					mat.pos.z += 0.3f;
+
+					plugin::gamefont::PrintAt3d(mat.pos, plugin::FormatStatic("%s", inst[0].m_aName), 0.0f, 0.0f, 1, 1.0f, 1.0f, CRGBA(255, 255, 255, 255), plugin::gamefont::AlignCenter);
+				}
+#endif
 			}
 		};
 
 		onRequestSpecialChar += [](int32_t specialSlotID, char const* name, int32_t streamingFlags) {
-			CutsceneHand::Request(specialSlotID, name);
+			CutsceneHand::Request(specialSlotID + 1, name);
 		};
 
 		onHasSpecialCharLoaded += [](int32_t id) {
 			if (CStreaming::HasSpecialCharLoaded(id)) {
-				CutsceneHand::HasLoaded(id);
+				CutsceneHand::HasLoaded(id + 1);
 			}
 		};
 
 		onUnloadSpecialChar += [](int32_t id) {
-			CutsceneHand::Unload(id);
+			CutsceneHand::Unload(id + 1);
 		};
 
 		onLoadCutsceneData += []() {

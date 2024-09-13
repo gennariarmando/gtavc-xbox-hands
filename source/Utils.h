@@ -28,10 +28,6 @@ static RwReal RwStreamReadReal(RwStream* stream) {
     return out;
 }
 
-static RwFreeList*& RpHAnimAnimationFreeList = *(RwFreeList**)0x94408C;
-static RtAnimInterpolatorInfo* RtAnimInterpolatorInfoBlock = (RtAnimInterpolatorInfo*)0x7D35D8;
-static RwInt32& RtAnimInterpolatorInfoBlockNumEntries = *(RwInt32*)0x787518;
-
 static RpHAnimAnimation* RtAnimAnimationStreamRead(RwStream* stream) {
     RpHAnimAnimation* anim = nullptr;
     if (RwStreamReadInt32(stream) != 0x100)
@@ -62,9 +58,6 @@ static RpHAnimAnimation* RtAnimAnimationRead(const char* name) {
     return out;
 }
 
-#define PLUGINOFFSET(type, base, offset) \
-	((type*)((uint8_t*)(base) + (offset)))
-
 static int32_t& RpHAnimAtomicGlobals = *(int32_t*)0x944088;
 
 static void RpHAnimFrameSetHierarchy(RwFrame* frame, RpHAnimHierarchy* hierarchy) {
@@ -73,7 +66,7 @@ static void RpHAnimFrameSetHierarchy(RwFrame* frame, RpHAnimHierarchy* hierarchy
         RpHAnimHierarchy* hierarchy;
     };
 
-    PLUGINOFFSET(HAnimData, frame, RpHAnimAtomicGlobals)->hierarchy = hierarchy;
+    ((HAnimData*)((uint8_t*)(frame)+(RpHAnimAtomicGlobals)))->hierarchy = hierarchy;
     hierarchy->parentFrame = frame;
 }
 
@@ -251,10 +244,13 @@ static RwBool RtAnimInterpolatorSubAnimTime(RtAnimInterpolator* anim, RwReal tim
     return true;
 }
 
-static void RtAnimInterpolatorSetCurrentTime(RtAnimInterpolator* anim, RwReal time) {
+static RwBool RtAnimInterpolatorSetCurrentTime(RtAnimInterpolator* anim, RwReal time) {
     RwReal t = time - anim->currentTime;
     if (time < 0.0f)
         RtAnimInterpolatorSubAnimTime(anim, -t);
-    else
+    else {
         RtAnimInterpolatorAddAnimTime(anim, t);
+    }
+
+    return true;
 }
