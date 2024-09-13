@@ -208,13 +208,15 @@ static InterpFrameHeader* RtAnimInterpolatorGetInterpFrame(RtAnimInterpolator* a
 
 static RwBool RtAnimInterpolatorAddAnimTime(RtAnimInterpolator* anim, RwReal t) {
     if (t <= 0.0f)
-        return false;
+        return true;
+
     anim->currentTime += t;
 
     if (anim->currentTime > anim->pCurrentAnim->duration) {
         RtAnimInterpolatorSetCurrentAnim(anim, anim->pCurrentAnim);
         return true;
     }
+
     KeyFrameHeader* last = RtAnimInterpolatorGetAnimFrame(anim, anim->pCurrentAnim->numFrames);
     KeyFrameHeader* next = (KeyFrameHeader*)anim->pNextFrame;
     InterpFrameHeader* ifrm = nullptr;
