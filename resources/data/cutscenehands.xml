@@ -329,6 +329,9 @@
 		<CHARACTER name="csbuddy">
 			<HAND red="150" green="150" blue="150"/>
 		</CHARACTER>
+		<CHARACTER name="chef">
+			<HAND model="NON-SKINNED"/>
+		</CHARACTER>
 	</CUTSCENE>
 	
 	
