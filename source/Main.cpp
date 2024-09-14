@@ -563,7 +563,24 @@ public:
                 return;
 
             auto hier = RpSkinAtomicGetHAnimHierarchy(inst->m_pAtomic);
-            RtAnimInterpolatorSetCurrentTime(hier->currentAnim, inst->m_fAnimTime);
+
+            // Anim loop workaround
+            float time = inst->m_fAnimTime;
+            float duration = hier->currentAnim->pCurrentAnim->duration + 3.0f;
+            float currentTime = hier->currentAnim->currentTime;
+
+            if (duration > 0.0f) { 
+                currentTime = std::fmod(time, duration); 
+            }
+            else {
+                currentTime = 0.0f; 
+            }
+            if (hier->currentAnim->currentTime >= hier->currentAnim->pCurrentAnim->duration) {
+                RtAnimInterpolatorSetCurrentAnim(hier->currentAnim, inst->m_pAnim);
+            }
+            //
+
+            RtAnimInterpolatorSetCurrentTime(hier->currentAnim, currentTime);
             RpHAnimHierarchyUpdateMatrices(hier);
         }
 
