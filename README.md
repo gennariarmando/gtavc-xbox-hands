@@ -11,6 +11,6 @@ Compatible only with GTA Vice City 1.0
 
 # How to install
 Grab [latest](https://github.com/gennariarmando/gtavc-xbox-hands/releases) archive. \
-Copy the folder "data", "scripts" and "anim" the root of your GTAVC directory. \
+Copy the folders: "data", "scripts" and "anim" to the root of your GTAVC directory. \
 Enjoy
 
