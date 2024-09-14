@@ -261,6 +261,14 @@ public:
                     }
                 }
             }
+
+            if (g_parser) {
+                delete g_parser;
+                g_parser = nullptr;
+            }
+
+            for (int32_t i = 0; i < NUM_INSTANCES; i++)
+                Unload(i);
         }
 
         static RpAtomic* FindHandAtomicByName(RpAtomic* atomic, void* data) {
